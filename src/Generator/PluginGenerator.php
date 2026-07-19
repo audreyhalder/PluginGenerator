@@ -32,6 +32,8 @@ final class PluginGenerator
         $this->renderTemplate('Plugin.php.tpl', $pluginPath . '/src/' . $pluginName . '.php', $replacements);
         $this->makeDir($pluginPath . '/src/Resources/config');
         $this->renderTemplate('services.xml.tpl', $pluginPath . '/src/Resources/config/services.xml', $replacements);
+        $this->makeDir($pluginPath . '/tests');
+        $this->renderTemplate('PluginTest.php.tpl', $pluginPath . '/tests/' . $pluginName . 'Test.php', $replacements);
         return $pluginPath;
     }
 

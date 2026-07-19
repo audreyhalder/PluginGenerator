@@ -29,6 +29,7 @@ final class PluginGenerator
         $replacements = $this->buildReplacements($pluginName, $vendor, $author);
         $this->makeDir($pluginPath . '/src');
         $this->renderTemplate('composer.json.tpl', $pluginPath . '/composer.json', $replacements);
+        $this->renderTemplate('Plugin.php.tpl', $pluginPath . '/src/' . $pluginName . '.php', $replacements);
         return $pluginPath;
     }
 

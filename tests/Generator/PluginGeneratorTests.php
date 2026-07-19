@@ -123,4 +123,13 @@ final class PluginGeneratorTests extends TestCase
 
         self::assertFileExists($pluginPath . '/src/Resources/app/storefront/src/scss/base.scss');
     }
+
+    public function testThrowsWhenTargetDirectoryAlreadyExists(): void
+    {
+        $generator = new PluginGenerator();
+        $generator->generate('DuplicatePlugin', $this->tmpDir, 'Audrey Halder', 'Audrey Halder', true);
+
+        $this->expectException(\RuntimeException::class);
+        $generator->generate('DuplicatePlugin', $this->tmpDir, 'Audrey Halder', 'Audrey Halder', true);
+    }
 }

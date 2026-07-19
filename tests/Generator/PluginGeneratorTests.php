@@ -72,7 +72,7 @@ final class PluginGeneratorTests extends TestCase
         self::assertSame('shopware-platform-plugin', $composerJson['type']);
         self::assertSame('Audrey Halder\\MyTestPlugin\\MyTestPlugin', $composerJson['extra']['shopware-plugin-class']);
     }
-    
+
     public function testGeneratedPluginClassHasCorrectNamespaceAndParent(): void
     {
         $generator = new PluginGenerator();

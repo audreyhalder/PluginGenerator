@@ -30,6 +30,8 @@ final class PluginGenerator
         $this->makeDir($pluginPath . '/src');
         $this->renderTemplate('composer.json.tpl', $pluginPath . '/composer.json', $replacements);
         $this->renderTemplate('Plugin.php.tpl', $pluginPath . '/src/' . $pluginName . '.php', $replacements);
+        $this->makeDir($pluginPath . '/src/Resources/config');
+        $this->renderTemplate('services.xml.tpl', $pluginPath . '/src/Resources/config/services.xml', $replacements);
         return $pluginPath;
     }
 

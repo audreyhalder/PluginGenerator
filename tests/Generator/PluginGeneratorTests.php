@@ -49,4 +49,27 @@ final class PluginGeneratorTests extends TestCase
         }
         rmdir($dir);
     }
+    
+    public function testGeneratesValidComposerJsonWithCorrectPluginClass(): void
+    {
+        $generator = new PluginGenerator();
+
+        $pluginPath = $generator->generate(
+            pluginName: 'MyTestPlugin',
+            targetDir: $this->tmpDir,
+            vendor: 'Audrey Halder',
+            author: 'Audrey Halder',
+            withStorefront: true
+        );
+
+        $composerJson = json_decode(
+            (string) file_get_contents($pluginPath . '/composer.json'),
+            true,
+            512,
+            JSON_THROW_ON_ERROR
+        );
+
+        self::assertSame('shopware-platform-plugin', $composerJson['type']);
+        self::assertSame('Audrey Halder\\MyTestPlugin\\MyTestPlugin', $composerJson['extra']['shopware-plugin-class']);
+    }
 }

@@ -26,9 +26,38 @@ final class PluginGenerator
             throw new \RuntimeException(sprintf('Directory "%s" already exists.', $pluginPath));
         }
 
+        $replacements = $this->buildReplacements($pluginName, $vendor, $author);
         $this->makeDir($pluginPath . '/src');
-
+        $this->renderTemplate('composer.json.tpl', $pluginPath . '/composer.json', $replacements);
         return $pluginPath;
+    }
+    
+    private function buildReplacements(string $pluginName, string $vendor, string $author): array
+    {
+        $namespace = $this->toPascalCase($vendor) . '\\' . $pluginName;
+
+        return [
+            '{{PLUGIN_NAME}}' => $pluginName,
+            '{{PLUGIN_LABEL}}' => $this->toLabel($pluginName),
+            '{{PLUGIN_NAME_KEBAB}}' => $this->toKebabCase($pluginName),
+            '{{NAMESPACE}}' => $namespace,
+            '{{NAMESPACE_JSON}}' => str_replace('\\', '\\\\', $namespace),
+            '{{VENDOR}}' => strtolower($vendor),
+            '{{AUTHOR}}' => $author,
+            '{{YEAR}}' => date('Y'),
+        ];
+    }
+    
+    private function renderTemplate(string $templateName, string $destination, array $replacements): void
+    {
+        $templatePath = $this->templateDir . '/' . $templateName;
+
+        if (!is_file($templatePath)) {
+            throw new \RuntimeException(sprintf('Template "%s" not found in "%s".', $templateName, $this->templateDir));
+        }
+
+        $content = file_get_contents($templatePath);
+        file_put_contents($destination, strtr($content, $replacements));
     }
 
     private function makeDir(string $path): void

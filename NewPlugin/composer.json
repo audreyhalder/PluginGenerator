@@ -1,0 +1,27 @@
+{
+    "name": "audrey halder/new-plugin",
+    "description": "New Plugin",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Audrey Halder"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.5.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "AudreyHalder\\NewPlugin\\\\NewPlugin",
+        "label": {
+            "en-GB": "New Plugin",
+            "de-DE": "New Plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "AudreyHalder\\NewPlugin\\\\": "src/"
+        }
+    }
+}

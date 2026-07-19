@@ -10,5 +10,4 @@ use Symfony\Component\Console\Application;
 
 $application = new Application('Plugin Generator Scaffold', '1.0.0');
 $application->add(new ScaffoldCommand());
-$application->setDefaultCommand('create', true);
 $application->run();

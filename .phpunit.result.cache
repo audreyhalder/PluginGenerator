@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"PluginGenerator\\Tests\\Command\\ScaffoldCommandTest::testCommandCreatesPluginSuccessfully":0.982,"PluginGenerator\\Tests\\Command\\ScaffoldCommandTest::testRejectsInvalidPluginName":0.08,"PluginGenerator\\Tests\\Command\\ScaffoldCommandTest::testWithStorefrontFlagIsPassedThrough":0.112}}

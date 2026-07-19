@@ -1,0 +1,27 @@
+{
+    "name": "acme/anothernew-plugin",
+    "description": "Anothernew Plugin",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Audrey Halder"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.5.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "Acme\\AnothernewPlugin\\\\AnothernewPlugin",
+        "label": {
+            "en-GB": "Anothernew Plugin",
+            "de-DE": "Anothernew Plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Acme\\AnothernewPlugin\\\\": "src/"
+        }
+    }
+}

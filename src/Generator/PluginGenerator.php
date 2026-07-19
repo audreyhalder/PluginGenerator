@@ -30,12 +30,12 @@ final class PluginGenerator
         $this->makeDir($pluginPath . '/src');
         $this->makeDir($pluginPath . '/src/Resources/config');
         $this->makeDir($pluginPath . '/tests');
-        
+
         $this->renderTemplate('composer.json.tpl', $pluginPath . '/composer.json', $replacements);
         $this->renderTemplate('Plugin.php.tpl', $pluginPath . '/src/' . $pluginName . '.php', $replacements);
         $this->renderTemplate('services.xml.tpl', $pluginPath . '/src/Resources/config/services.xml', $replacements);
         $this->renderTemplate('PluginTest.php.tpl', $pluginPath . '/tests/' . $pluginName . 'Test.php', $replacements);
-        
+
         if ($withStorefront) {
             $this->makeDir($pluginPath . '/src/Resources/app/storefront/src/scss');
             $this->renderTemplate(
@@ -44,7 +44,7 @@ final class PluginGenerator
                 $replacements
             );
         }
-        
+
         return $pluginPath;
     }
 

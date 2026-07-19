@@ -108,4 +108,19 @@ final class PluginGeneratorTests extends TestCase
         self::assertFileExists($pluginPath . '/src/Resources/config/services.xml');
         self::assertFileExists($pluginPath . '/tests/MyTestPluginTest.php');
     }
+
+    public function testAddsScssFile(): void
+    {
+        $generator = new PluginGenerator();
+
+        $pluginPath = $generator->generate(
+            pluginName: 'StorefrontPlugin',
+            targetDir: $this->tmpDir,
+            vendor: 'Audrey Halder',
+            author: 'Audrey Halder',
+            withStorefront: true
+        );
+
+        self::assertFileExists($pluginPath . '/src/Resources/app/storefront/src/scss/base.scss');
+    }
 }

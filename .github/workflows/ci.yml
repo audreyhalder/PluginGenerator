@@ -24,6 +24,12 @@ jobs:
           coverage: none
           tools: composer:v2
 
+      - name: Make PHPCS executable
+        run: chmod +x vendor/bin/phpcs vendor/bin/phpcbf
+
+      - name: Run PHPCS
+        run: vendor/bin/phpcs
+
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-interaction
 

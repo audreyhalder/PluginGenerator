@@ -31,7 +31,7 @@ final class PluginGenerator
         $this->renderTemplate('composer.json.tpl', $pluginPath . '/composer.json', $replacements);
         return $pluginPath;
     }
-    
+
     private function buildReplacements(string $pluginName, string $vendor, string $author): array
     {
         $namespace = $this->toPascalCase($vendor) . '\\' . $pluginName;
@@ -47,7 +47,7 @@ final class PluginGenerator
             '{{YEAR}}' => date('Y'),
         ];
     }
-    
+
     private function renderTemplate(string $templateName, string $destination, array $replacements): void
     {
         $templatePath = $this->templateDir . '/' . $templateName;

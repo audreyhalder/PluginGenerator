@@ -49,7 +49,7 @@ final class PluginGeneratorTests extends TestCase
         }
         rmdir($dir);
     }
-    
+
     public function testGeneratesValidComposerJsonWithCorrectPluginClass(): void
     {
         $generator = new PluginGenerator();

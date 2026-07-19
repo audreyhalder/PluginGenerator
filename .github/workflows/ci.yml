@@ -24,14 +24,15 @@ jobs:
           coverage: none
           tools: composer:v2
 
-      - name: Make PHPCS executable
-        run: chmod +x vendor/bin/phpcs vendor/bin/phpcbf
-
-      - name: Run PHPCS
-        run: vendor/bin/phpcs
-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-interaction
+        
+      - name: Make tools executable
+        run: |
+          chmod +x vendor/bin/phpcs
+          chmod +x vendor/bin/phpcbf
+          chmod +x vendor/bin/phpstan
+          chmod +x vendor/bin/phpunit
 
       - name: Run linter (PHP_CodeSniffer, PSR-12)
         run: vendor/bin/phpcs

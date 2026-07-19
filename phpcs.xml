@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="PluginGenerator">
+    <description>Coding standard for plugin-generator</description>
+
+    <arg name="colors"/>
+    <arg value="p"/>
+
+    <rule ref="PSR12"/>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <exclude-pattern>*/templates/*</exclude-pattern>
+</ruleset>

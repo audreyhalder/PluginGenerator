@@ -21,12 +21,12 @@ composer install
 ```
 
 This installs Symfony Console and the dev tools (PHPUnit, PHP_CodeSniffer, PHPStan) and
-makes the `bin/shopware-scaffold` executable available.
+makes the `bin/plugin-generator` executable available.
 
 ## Usage
 
 ```bash
-php bin/shopware-scaffold create MyCustomPlugin \
+php bin/plugin-generator create MyCustomPlugin \
     --vendor=acme \
     --author="Your Name"
 ```
